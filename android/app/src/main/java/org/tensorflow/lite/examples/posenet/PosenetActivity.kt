@@ -75,7 +75,14 @@ class PosenetActivity :
   lateinit var m_bluetoothAdapter:BluetoothAdapter
   var m_bluetoothSocket:BluetoothSocket?=null
 
-
+  override fun onDetach() {
+    super.onDetach()
+    if(m_isConnected==true) bluetoothKit.bluetoothSocket.outputStream.write(inte)
+    val intent = Intent(context?.applicationContext, AlarmBellService::class.java)
+    context?.applicationContext?.stopService(intent)
+    bluetoothKit.disconnect()
+    this.activity?.finish()
+  }
 
   /** List of body joints that should be connected.    */
   private val bodyJoints = listOf(
@@ -842,7 +849,7 @@ class PosenetActivity :
               stepProgressView?.currentProgress=2
               val activity = activity
               activity?.runOnUiThread { imageView3?.visibility = View.VISIBLE }
-            }else{if(m_isConnected==true)  bluetoothKit.bluetoothSocket.outputStream.write(intw)}
+            }
             showscore=((1.5-simil3)*100).toFloat()
 
           }
@@ -862,7 +869,7 @@ class PosenetActivity :
               stepProgressView?.currentProgress=3
               val activity = activity
               activity?.runOnUiThread { imageView4?.visibility = View.VISIBLE }
-            }else{if(m_isConnected==true)  bluetoothKit.bluetoothSocket.outputStream.write(intw)}
+            }
             showscore=((1.5-simil3)*100).toFloat()
 
 
@@ -893,7 +900,7 @@ class PosenetActivity :
               stage = 5
               stepProgressView?.currentProgress=4
 
-          }else{if(m_isConnected==true)  bluetoothKit.bluetoothSocket.outputStream.write(intw)}
+          }
             val simill=(simil4+simil5)/2
             showscore=((1.5-simill)*100).toFloat()
 
@@ -917,12 +924,16 @@ class PosenetActivity :
                 val cnt = pref.getInt("cnt", 0)
                 editor.putInt("cnt", cnt + 1)
                 editor.commit()
+              val intent = Intent(context?.applicationContext, AlarmBellService::class.java)
+              context?.applicationContext?.stopService(intent)
 
               this.activity?.finish()
             }
             builder.setNegativeButton("아니요") { dialog, which ->
               // Toast.makeText(this.context?.applicationContext,"다시 1단계를 시작합니다",Toast.LENGTH_SHORT).show()
-
+              context?.applicationContext?.stopService(Intent())
+              val intent = Intent(context?.applicationContext, AlarmBellService::class.java)
+              context?.applicationContext?.stopService(intent)
               activity?.finish()
 
               startActivity(this.activity?.intent)
@@ -940,8 +951,10 @@ class PosenetActivity :
 
 
       }
+
       if (showscore<0) showscore=0f
       else if (showscore>100) showscore=100.0f
+      if(showscore<50&&m_isConnected==true) bluetoothKit.bluetoothSocket.outputStream.write(intw)
 
     }
     else{ showscore =0f}

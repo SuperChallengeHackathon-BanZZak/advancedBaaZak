@@ -23,4 +23,5 @@
   <color name="theme">#F9B135</color>
   <color name="control_background">#FFFC62</color>
   <color name="semi_transparent">#FFF1A7</color>
+  <color name="white">#FFFFFF</color>
 </resources>

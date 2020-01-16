@@ -45,11 +45,11 @@ public class SplashActivity extends AppCompatActivity {
     private void doWork(){
 
         left2right.setProgressTintList(ColorStateList.valueOf(getColor(R.color.black)));
-        left2right.setProgressBackgroundTintList(ColorStateList.valueOf(getColor(R.color.title_color)));
+        left2right.setProgressBackgroundTintList(ColorStateList.valueOf(getColor(R.color.white)));
 //        left2right.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.title_color)));
         right2left.setProgressTintList(ColorStateList.valueOf(getColor(R.color.theme)));
 //        right2left.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
-        right2left.setProgressBackgroundTintList(ColorStateList.valueOf(getColor(R.color.title_color)));
+        right2left.setProgressBackgroundTintList(ColorStateList.valueOf(getColor(R.color.white)));
 
         for (int progress=0; progress<100; progress++) {
             try {
