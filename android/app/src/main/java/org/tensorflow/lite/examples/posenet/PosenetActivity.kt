@@ -263,7 +263,7 @@ class PosenetActivity :
       isconnect=true
       bluetoothKit.connect(device!!)
       Toast.makeText(this.context?.applicationContext, "블루투스 연결이 확인되었습니다.",Toast.LENGTH_SHORT).show()
-      bluetoothKit?.bluetoothSocket.outputStream.write(ints)
+        if(m_isConnected==true) bluetoothKit?.bluetoothSocket.outputStream.write(ints)
     }
     else
     {
@@ -814,7 +814,7 @@ class PosenetActivity :
 
             //
             if (simil1 < 0.52 && simil2 < 0.52) {
-              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
+                if(m_isConnected==true)  bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView1?.visibility = View.INVISIBLE
               stage = 2
               stepProgressView?.currentProgress=1
@@ -832,10 +832,10 @@ class PosenetActivity :
             val NoseRighthipx = person.keyPoints[0].position.x-person.keyPoints[12].position.x
             val NoseRighthipy = person.keyPoints[0].position.y-person.keyPoints[12].position.y
             var simil3 = getcos( -cos(50*rad.toFloat()),-sin(50*rad.toFloat()), NoseRighthipx.toFloat(), NoseRighthipy.toFloat())
-            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
+              if(m_isConnected==true) bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
             if(simil3<0.52){
 
-              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
+                if(m_isConnected==true) bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView2?.visibility = View.INVISIBLE
               stage = 3
               stepProgressView?.currentProgress=2
@@ -847,7 +847,7 @@ class PosenetActivity :
           }
           //왼쪽굽히기
           3 -> {
-            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
+              if(m_isConnected==true)  bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
             val NoseLefthipx = person.keyPoints[0].position.x-person.keyPoints[11].position.x
             val NoseLefthipy = person.keyPoints[0].position.y-person.keyPoints[11].position.y
             var simil3 = getcos( cos(50*rad.toFloat()),-sin(50*rad.toFloat()),
@@ -855,7 +855,7 @@ class PosenetActivity :
               NoseLefthipy.toFloat()
             )
             if(simil3<0.52){
-              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
+                if(m_isConnected==true)  bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView3?.visibility = View.INVISIBLE
               stage = 4
               stepProgressView?.currentProgress=3
@@ -868,7 +868,7 @@ class PosenetActivity :
           }
           //스쿼트
           4 -> {
-            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
+              if(m_isConnected==true) bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
 
             var simil4= getcos(
               -cos(15*rad.toFloat()),sin(15*rad.toFloat()),
@@ -887,16 +887,10 @@ class PosenetActivity :
               leftleg2y.toFloat()
             )
             if(simil4<0.52 && simil5<0.52){
-              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
+                if(m_isConnected==true) bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView4?.visibility = View.INVISIBLE
               stage = 5
               stepProgressView?.currentProgress=4
-
-              print("팔 ")
-              println(simil4.toString())
-              print("다리 ")
-              println(simil5.toString())
-
 
           }
             val simill=(simil4+simil5)/2
@@ -905,9 +899,9 @@ class PosenetActivity :
           }
           else ->{
             // Create fragment and give it an argument specifying the article it should show
-if(showscore<50)   bluetoothKit?.bluetoothSocket?.outputStream?.write(intw)
+if(showscore<50&&(m_isConnected==true) )   bluetoothKit?.bluetoothSocket?.outputStream?.write(intw)
           if(!isshow) {
-            bluetoothKit?.bluetoothSocket?.outputStream?.write(inte)
+           if(m_isConnected==true) bluetoothKit?.bluetoothSocket?.outputStream?.write(inte)
             val builder = AlertDialog.Builder(this.context)
             builder.setTitle("알람이 종료되었습니다.")
             builder.setMessage("잠이 깨셨습니까?")

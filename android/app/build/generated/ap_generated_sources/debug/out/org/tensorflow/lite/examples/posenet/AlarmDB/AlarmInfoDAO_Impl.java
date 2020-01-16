@@ -28,6 +28,8 @@ public final class AlarmInfoDAO_Impl implements AlarmInfoDAO {
 
   private final SharedSQLiteStatement __preparedStmtOfDeleteAll;
 
+  private final SharedSQLiteStatement __preparedStmtOfDeleteByID;
+
   public AlarmInfoDAO_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfAlarmInfo = new EntityInsertionAdapter<AlarmInfo>(__db) {
@@ -74,6 +76,13 @@ public final class AlarmInfoDAO_Impl implements AlarmInfoDAO {
         return _query;
       }
     };
+    this.__preparedStmtOfDeleteByID = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM alarm_table WHERE ? = id";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -108,6 +117,21 @@ public final class AlarmInfoDAO_Impl implements AlarmInfoDAO {
     } finally {
       __db.endTransaction();
       __preparedStmtOfDeleteAll.release(_stmt);
+    }
+  }
+
+  @Override
+  public void deleteByID(final int id) {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteByID.acquire();
+    int _argIndex = 1;
+    _stmt.bindLong(_argIndex, id);
+    __db.beginTransaction();
+    try {
+      _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfDeleteByID.release(_stmt);
     }
   }
 

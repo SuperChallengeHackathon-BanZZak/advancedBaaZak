@@ -13,22 +13,23 @@
 
     <ImageView
         android:id="@+id/text"
-        android:layout_below="@id/logo"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/text1"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/text1" />
 
     <ProgressBar
+
         android:id="@+id/right2left"
         style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/text"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="-2dp"
         android:layout_marginTop="455dp"
-        android:layout_marginRight="-1dp" />
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@+id/text" />
 
     <ProgressBar
         android:id="@+id/left2right"

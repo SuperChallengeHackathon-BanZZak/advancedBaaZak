@@ -56,6 +56,10 @@ public class AppRepository {
         new deleteAsyncTask(alarmInfoDAO).execute(alarmInfo);
     }
 
+    public void deleteByID(int id){
+        new deleteByIDAsyncTask(alarmInfoDAO).execute(id);
+    }
+
     public LiveData<List<AlarmInfo>> getAllAlarmInfo() {
         return allAlarmInfo;
     }
@@ -71,6 +75,21 @@ public class AppRepository {
         @Override
         protected Void doInBackground(AlarmInfo... alarmInfos) {
             alarmInfoDAO.deleteAlarm(alarmInfos[0]);
+            return null;
+        }
+    }
+
+    private static class deleteByIDAsyncTask extends AsyncTask<Integer, Void, Void>{
+
+        private AlarmInfoDAO alarmInfoDAO;
+
+        deleteByIDAsyncTask(AlarmInfoDAO dao){
+            alarmInfoDAO = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Integer... integers) {
+            alarmInfoDAO.deleteByID(integers[0]);
             return null;
         }
     }

@@ -46,7 +46,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
 
                 Context context = v.getContext();
-                Intent intent = new Intent(context, CameraActivity.class);
+//                Intent intent = new Intent(context, CameraActivity.class);
+                Intent intent = new Intent(context, AlarmSettingActivity.class);
 
                 intent.putExtra("origin", list.get(position));
                 intent.putExtra("flag", 1);

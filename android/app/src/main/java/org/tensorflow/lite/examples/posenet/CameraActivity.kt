@@ -18,9 +18,7 @@ package org.tensorflow.lite.examples.posenet
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-
-import android.bluetooth.BluetoothAdapter
-import com.sirvar.bluetoothkit.BluetoothKit
+import androidx.fragment.app.Fragment
 
 class CameraActivity : AppCompatActivity() {
 
@@ -29,6 +27,12 @@ class CameraActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_camera)
 
+//     val kotlinFragment = KotlinFragment.newInstance("Hello", 111, testData)
+//
+//     supportFragmentManager
+//       .beginTransaction()
+//       .replace(R.id.content, kotlinFragment, fragment.KotlinFragment.javaClass.name)
+//       .commit()
     savedInstanceState ?: supportFragmentManager.beginTransaction()
       .replace(R.id.container, PosenetActivity())
       .commit()
