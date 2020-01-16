@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.bluetooth.BluetoothAdapter;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,10 @@ import org.tensorflow.lite.examples.posenet.Receiver.AlarmReceiver;
 import org.tensorflow.lite.examples.posenet.Utils.Codes;
 
 import java.util.Calendar;
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
+
 
 public class AlarmSettingActivity extends AppCompatActivity {
 
@@ -32,6 +37,8 @@ public class AlarmSettingActivity extends AppCompatActivity {
     Intent receiverIntent;
     PendingIntent pendingIntent;
     long time;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,7 +99,13 @@ public class AlarmSettingActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //블
+
+
+
     }
+
 
     public String getHour(){
         if(hour < 10) return "0" + hour;

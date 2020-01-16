@@ -5,10 +5,10 @@
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
-7-->C:\Users\heeye\Desktop\android\posenet\src\main\AndroidManifest.xml:4:3-15
+7-->C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\src\main\AndroidManifest.xml:4:3-15
 8        android:minSdkVersion="21"
-8-->C:\Users\heeye\Desktop\android\posenet\src\main\AndroidManifest.xml:4:3-15
+8-->C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\src\main\AndroidManifest.xml:4:3-15
 9        android:targetSdkVersion="23" />
-9-->C:\Users\heeye\Desktop\android\posenet\src\main\AndroidManifest.xml:4:3-15
+9-->C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\src\main\AndroidManifest.xml:4:3-15
 10
 11</manifest>

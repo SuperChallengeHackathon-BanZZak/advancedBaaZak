@@ -15,70 +15,49 @@
  */
 
 package org.tensorflow.lite.examples.posenet
-import androidx.appcompat.app.AppCompatActivity
-import android.view.Gravity
-import android.graphics.Typeface
-import kotlinx.android.synthetic.main.endingdialog.view.*
 
-import kotlinx.android.synthetic.main.activity_posenet.*
+
+import android.content.IntentFilter
+
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
-import androidx.fragment.app.DialogFragment
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.ImageFormat
-import android.graphics.Matrix
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.Rect
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraCaptureSession
-import android.hardware.camera2.CameraCharacteristics
-import android.hardware.camera2.CameraDevice
-import android.hardware.camera2.CameraManager
-import android.hardware.camera2.CaptureRequest
-import android.hardware.camera2.CaptureResult
-import android.hardware.camera2.TotalCaptureResult
+import android.graphics.*
+import android.hardware.camera2.*
+import android.media.AudioManager
 import android.media.Image
 import android.media.ImageReader
 import android.media.ImageReader.OnImageAvailableListener
-import android.os.Bundle
-import android.os.Handler
-import android.os.HandlerThread
-import androidx.core.app.ActivityCompat
-
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.core.content.ContextCompat
-
 import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
-import android.view.LayoutInflater
-import android.view.Surface
-import android.view.SurfaceHolder
-import android.view.SurfaceView
+import android.view.*
+import android.view.KeyEvent
 import android.view.View
 import android.widget.ImageView
-import params.com.stepprogressview.StepProgressView
-import android.view.ViewGroup
-import android.webkit.RenderProcessGoneDetail
 import android.widget.Toast
-import java.util.concurrent.Semaphore
-import java.util.concurrent.TimeUnit
-import kotlin.math.abs
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import org.tensorflow.lite.examples.posenet.Service.AlarmBellService
 import org.tensorflow.lite.examples.posenet.lib.BodyPart
 import org.tensorflow.lite.examples.posenet.lib.Person
 import org.tensorflow.lite.examples.posenet.lib.Posenet
-import kotlin.math.sqrt
+import params.com.stepprogressview.StepProgressView
+import java.util.concurrent.Semaphore
+import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.math.sqrt
+import java.io.IOException
 
+import android.content.BroadcastReceiver
+import android.os.*
 
 
 
@@ -87,7 +66,11 @@ class PosenetActivity :
   ActivityCompat.OnRequestPermissionsResultCallback {
   private var stage=1
   private  var showscore:Float =0f
-   var isshow:Boolean = false
+  var audioManager: AudioManager? = null
+  var isshow:Boolean = false
+
+
+
   /** List of body joints that should be connected.    */
   private val bodyJoints = listOf(
     Pair(BodyPart.LEFT_ELBOW, BodyPart.LEFT_WRIST),
@@ -103,6 +86,7 @@ class PosenetActivity :
     Pair(BodyPart.RIGHT_HIP, BodyPart.RIGHT_KNEE),
     Pair(BodyPart.RIGHT_KNEE, BodyPart.RIGHT_ANKLE)
   )
+
 
 
 
@@ -188,6 +172,9 @@ class PosenetActivity :
 
 
 
+
+
+
   //private var stage=4
 
   private fun getcos(v1:Float,v2:Float, v3:Float, v4:Float):Float{
@@ -251,7 +238,30 @@ class PosenetActivity :
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?): View? {
+    //audioManager =this.context?.getSystemService(Context.AUDIO_SERVICE)
 
+    audioManager = context?.applicationContext?.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+    val maxVolume = audioManager!!.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+    //        audioManager.adjustVolume(AudioManager.RINGER_MODE_NORMAL, AudioManager.FLAG_PLAY_SOUND);
+    audioManager!!.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0)
+    val intent = Intent(context?.applicationContext, AlarmBellService::class.java)
+    context?.applicationContext?.startService(intent)
+
+
+    @Override
+    fun dispatchKeyEvent(event: KeyEvent): Boolean {
+      val action = event.action
+      val keyCode = event.keyCode
+      return when (keyCode) {
+        KeyEvent.KEYCODE_VOLUME_DOWN -> {
+          if (action == KeyEvent.ACTION_DOWN) {
+            audioManager!!.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_PLAY_SOUND)
+          }
+         return true
+        }
+        else -> return dispatchKeyEvent(event)
+      }
+    }
 
 
     return inflater.inflate(R.layout.activity_posenet, container, false)
@@ -264,16 +274,17 @@ class PosenetActivity :
     //super.onViewCreated(view, savedInstanceState)
     surfaceView = view.findViewById(R.id.surfaceView)
     surfaceHolder = surfaceView!!.holder
-    imageView1= view.findViewById(R.id.stage1)
-    imageView2= view.findViewById(R.id.stage2)
-    imageView3= view.findViewById(R.id.stage3)
-    imageView4= view.findViewById(R.id.stage4)
-    imageView5= view.findViewById(R.id.stage5)
-    stepProgressView=view.findViewById(R.id.score)
-
-
+    imageView1 = view.findViewById(R.id.stage1)
+    imageView2 = view.findViewById(R.id.stage2)
+    imageView3 = view.findViewById(R.id.stage3)
+    imageView4 = view.findViewById(R.id.stage4)
+    imageView5 = view.findViewById(R.id.stage5)
+    stepProgressView = view.findViewById(R.id.score)
 
   }
+
+
+
   private fun showtoast(){
 
     val layoutInflater= this.context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
