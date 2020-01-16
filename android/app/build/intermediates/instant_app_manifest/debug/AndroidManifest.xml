@@ -66,6 +66,7 @@
             android:name="org.tensorflow.lite.examples.posenet.CameraActivity"
             android:exported="true" >
         </activity>
+        <activity android:name="org.tensorflow.lite.examples.posenet.PointActivity" />
         <activity android:name="app.akexorcist.bluetotohspp.library.DeviceList" />
 
         <service

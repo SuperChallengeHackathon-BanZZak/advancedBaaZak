@@ -18,14 +18,19 @@ package org.tensorflow.lite.examples.posenet
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+
 
 class CameraActivity : AppCompatActivity() {
+
 
    // val bluetoothKit = BluetoothKit()
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_camera)
+
+    // val kotlinFragment = PosenetActivity.newInstance("Hello", 111, testData)
+
+
 
 //     val kotlinFragment = KotlinFragment.newInstance("Hello", 111, testData)
 //
@@ -33,8 +38,17 @@ class CameraActivity : AppCompatActivity() {
 //       .beginTransaction()
 //       .replace(R.id.content, kotlinFragment, fragment.KotlinFragment.javaClass.name)
 //       .commit()
+
+     val bundle = Bundle()
+
+     val id = intent.getIntExtra("alarm_id", 0)
+     bundle.putInt("alarm_id", id)
+
+     val fragInfo = PosenetActivity()
+     fragInfo.setArguments(bundle)
+
     savedInstanceState ?: supportFragmentManager.beginTransaction()
-      .replace(R.id.container, PosenetActivity())
+      .replace(R.id.container, fragInfo)
       .commit()
   }
 

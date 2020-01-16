@@ -856,6 +856,10 @@
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+        "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu.xml.flat",
+        "source": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\src\\main\\res\\menu\\menu.xml"
+    },
+    {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -1114,6 +1118,10 @@
     {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_background_transition_holo_light.xml.flat",
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_giffile.gif.flat",
+        "source": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\src\\main\\res\\drawable\\giffile.gif"
     },
     {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -1636,6 +1644,10 @@
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\layout\\abc_cascading_menu_item_layout.xml"
     },
     {
+        "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_point.xml.flat",
+        "source": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\src\\main\\res\\layout\\activity_point.xml"
+    },
+    {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -2150,6 +2162,10 @@
     {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\heeye\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sun.png.flat",
+        "source": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\src\\main\\res\\drawable\\sun.png"
     },
     {
         "merged": "C:\\Users\\heeye\\Desktop\\advancedBaaZak\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",

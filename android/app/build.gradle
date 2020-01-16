@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.params.progressview:step-progress:1.0.2'
     implementation 'com.akexorcist:bluetoothspp:1.0.0'
     implementation "com.github.sirvar:bluetoothkit-android:v0.3"
-
+    implementation "com.github.bumptech.glide:glide:3.7.0"
     // room
     def room_version = "2.1.0-alpha04"
     implementation "androidx.room:room-runtime:$room_version"

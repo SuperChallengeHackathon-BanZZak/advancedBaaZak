@@ -1066,6 +1066,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable giffile
 drawable ic_add_black_24dp
 drawable ic_launcher
 drawable ic_launcher_background
@@ -1097,6 +1098,7 @@ drawable stage1
 drawable stage2
 drawable stage3
 drawable stage4
+drawable sun
 drawable text
 drawable text1
 drawable tfl2_logo
@@ -1185,6 +1187,7 @@ id checked
 id chronometer
 id clip_horizontal
 id clip_vertical
+id cnt
 id collapseActionView
 id container
 id container2
@@ -1220,6 +1223,7 @@ id filled
 id fixed
 id forever
 id ghost_view
+id gif_image
 id gone
 id group_divider
 id groups
@@ -1302,6 +1306,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id showpoint
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1425,6 +1430,7 @@ layout abc_tooltip
 layout activity_alarm_setting
 layout activity_camera
 layout activity_main
+layout activity_point
 layout activity_posenet
 layout activity_splash
 layout activity_test
@@ -1459,6 +1465,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu
 mipmap ic_action_info
 mipmap ic_launcher
 mipmap ic_launcher_eye

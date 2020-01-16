@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -120,5 +122,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         editor.commit();
 
         return ret;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.cnt:
+                Intent intent = new Intent(MainActivity.this, PointActivity.class);
+                startActivityForResult(intent,123);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

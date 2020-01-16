@@ -60,6 +60,7 @@
             android:exported="true">
 
         </activity>
+        <activity android:name=".PointActivity" />
     </application>
 
 </manifest>

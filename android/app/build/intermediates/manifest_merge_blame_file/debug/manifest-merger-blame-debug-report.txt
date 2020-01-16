@@ -35,7 +35,7 @@
 20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 21
 22    <application
-22-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:15:5-63:19
+22-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:15:5-64:19
 23        android:allowBackup="true"
 23-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:17:9-35
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -119,27 +119,30 @@
 66            android:exported="true" >
 66-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:60:13-36
 67        </activity>
-68        <activity android:name="app.akexorcist.bluetotohspp.library.DeviceList" />
-68-->[com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:11:9-83
-68-->[com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:11:19-80
-69
-70        <service
-70-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:23:9-25:40
-71            android:name="androidx.room.MultiInstanceInvalidationService"
-71-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:24:13-74
-72            android:exported="false" />
-72-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:25:13-37
-73
-74        <provider
-74-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
-75            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-75-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
-76            android:authorities="org.tensorflow.lite.examples.posenet.lifecycle-process"
-76-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
-77            android:exported="false"
-77-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
-78            android:multiprocess="true" />
-78-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
-79    </application>
-80
-81</manifest>
+68        <activity android:name="org.tensorflow.lite.examples.posenet.PointActivity" />
+68-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:63:9-51
+68-->C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:63:19-48
+69        <activity android:name="app.akexorcist.bluetotohspp.library.DeviceList" />
+69-->[com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:11:9-83
+69-->[com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:11:19-80
+70
+71        <service
+71-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:23:9-25:40
+72            android:name="androidx.room.MultiInstanceInvalidationService"
+72-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:24:13-74
+73            android:exported="false" />
+73-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:25:13-37
+74
+75        <provider
+75-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+76            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+76-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+77            android:authorities="org.tensorflow.lite.examples.posenet.lifecycle-process"
+77-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+78            android:exported="false"
+78-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+79            android:multiprocess="true" />
+79-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+80    </application>
+81
+82</manifest>
