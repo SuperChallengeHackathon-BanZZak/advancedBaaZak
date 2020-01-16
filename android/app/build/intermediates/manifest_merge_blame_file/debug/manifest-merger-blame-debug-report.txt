@@ -1,0 +1,121 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.tensorflow.lite.examples.posenet"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:5:5-17
+8        android:minSdkVersion="21"
+8-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:5:5-17
+9        android:targetSdkVersion="29" />
+9-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:5:5-17
+10
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:7:5-65
+11-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:7:22-62
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:8:5-68
+12-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:8:22-65
+13
+14    <uses-feature android:name="android.hardware.camera.autofocus" />
+14-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:10:5-70
+14-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:10:19-67
+15
+16    <application
+16-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:12:5-56:19
+17        android:allowBackup="true"
+17-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:14:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.1.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\df2ac4fe6b88cbdd1c862077d2fdf1ec\core-1.1.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:15:9-43
+21        android:label="@string/app_name"
+21-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:16:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:17:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:18:9-35
+24        android:testOnly="true"
+25        android:theme="@style/MaterialTheme" >
+25-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:19:9-45
+26        <activity
+26-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:21:9-28:20
+27            android:name="org.tensorflow.lite.examples.posenet.SplashActivity"
+27-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:21:19-49
+28            android:screenOrientation="portrait"
+28-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:23:13-49
+29            android:theme="@style/SplashTheme" >
+29-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:22:13-47
+30            <intent-filter>
+30-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:24:13-27:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:25:17-69
+31-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:25:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:26:17-77
+33-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:26:27-74
+34            </intent-filter>
+35        </activity>
+36
+37        <receiver
+37-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:30:9-39:20
+38            android:name="org.tensorflow.lite.examples.posenet.Receiver.AlarmReceiver"
+38-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:31:13-51
+39            android:enabled="true"
+39-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:32:13-35
+40            android:exported="true" >
+40-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:33:13-36
+41            <intent-filter>
+41-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:35:13-37:29
+42                <action android:name="android.intent.action.sec" />
+42-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:36:17-67
+42-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:36:25-65
+43            </intent-filter>
+44        </receiver>
+45
+46        <activity android:name="org.tensorflow.lite.examples.posenet.MainActivity" >
+46-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:41:9-43:20
+46-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:41:19-47
+47        </activity>
+48        <activity android:name="org.tensorflow.lite.examples.posenet.AlarmSettingActivity" />
+48-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:44:9-58
+48-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:44:19-55
+49        <activity
+49-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:47:9-50:48
+50            android:name="org.tensorflow.lite.examples.posenet.TestActivity"
+50-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:48:13-41
+51            android:exported="true"
+51-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:49:13-36
+52            android:label="@string/app_name" />
+52-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:50:13-45
+53        <activity
+53-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:51:9-55:20
+54            android:name="org.tensorflow.lite.examples.posenet.CameraActivity"
+54-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:52:13-43
+55            android:exported="true" >
+55-->C:\Users\heeye\Desktop\android\app\src\main\AndroidManifest.xml:53:13-36
+56        </activity>
+57
+58        <service
+58-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:23:9-25:40
+59            android:name="androidx.room.MultiInstanceInvalidationService"
+59-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:24:13-74
+60            android:exported="false" />
+60-->[androidx.room:room-runtime:2.1.0-alpha04] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\063c9be963cc9eeb74a632cd9435abc4\room-runtime-2.1.0-alpha04\AndroidManifest.xml:25:13-37
+61
+62        <provider
+62-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+63            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+63-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+64            android:authorities="org.tensorflow.lite.examples.posenet.lifecycle-process"
+64-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+65            android:exported="false"
+65-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+66            android:multiprocess="true" />
+66-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\227f1059463b60e9d47eabe044c6a177\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+67    </application>
+68
+69</manifest>
