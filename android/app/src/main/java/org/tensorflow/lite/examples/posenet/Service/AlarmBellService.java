@@ -25,7 +25,7 @@ public class AlarmBellService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mp = MediaPlayer.create(this, R.raw.sample);
+        mp = MediaPlayer.create(this, R.raw.sample1);
         mp.setLooping(false);
     }
 

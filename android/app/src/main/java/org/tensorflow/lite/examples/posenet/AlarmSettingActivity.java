@@ -3,6 +3,7 @@ package org.tensorflow.lite.examples.posenet;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.bluetooth.BluetoothAdapter;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +21,6 @@ import org.tensorflow.lite.examples.posenet.Receiver.AlarmReceiver;
 import org.tensorflow.lite.examples.posenet.Utils.Codes;
 
 import java.util.Calendar;
-import app.akexorcist.bluetotohspp.library.BluetoothSPP;
-import app.akexorcist.bluetotohspp.library.BluetoothState;
-import app.akexorcist.bluetotohspp.library.DeviceList;
-
 
 public class AlarmSettingActivity extends AppCompatActivity {
 
@@ -37,8 +33,6 @@ public class AlarmSettingActivity extends AppCompatActivity {
     Intent receiverIntent;
     PendingIntent pendingIntent;
     long time;
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,8 +60,6 @@ public class AlarmSettingActivity extends AppCompatActivity {
                     min = timePicker.getCurrentMinute();
                 }
 
-                Toast.makeText(AlarmSettingActivity.this, getHour() + " : " + getMin(), Toast.LENGTH_SHORT).show();
-
                 alarmInfo.setHour(getHour());
                 alarmInfo.setMin(getMin());
                 alarmInfo.setAmpm(getAmpm());
@@ -75,7 +67,9 @@ public class AlarmSettingActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("alarm_info", alarmInfo);
 
-                makeAlarm(hour, min);
+                makeAlarm(hour, min, alarmInfo.getId());
+//                Toast.makeText(AlarmSettingActivity.this, "" + alarmInfo.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlarmSettingActivity.this, getHour() + ":" + getMin() + " " + getAmpm() + "에 알람이 울립니다.", Toast.LENGTH_SHORT).show();
                 setResult(Codes.NEW_ALARM_CODE, intent);
 
                 finish();
@@ -94,18 +88,15 @@ public class AlarmSettingActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.putExtra("delete_this", alarmInfo);
 
+                    deleteAlarm(alarmInfo.getId());
+//                    Toast.makeText(AlarmSettingActivity.this, "" + alarmInfo.getId(), Toast.LENGTH_SHORT).show();
+
                     setResult(Codes.DELETE_THIS_ALARM, intent);
                     finish();
                 }
             }
         });
-
-        //블
-
-
-
     }
-
 
     public String getHour(){
         if(hour < 10) return "0" + hour;
@@ -125,14 +116,13 @@ public class AlarmSettingActivity extends AppCompatActivity {
         return hour < 12 ? "AM" : "PM";
     }
 
-    private void makeAlarm(int hour, int min){
+    private void makeAlarm(int hour, int min, int alarmId){
 
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         calendar = Calendar.getInstance();
 
-        receiverIntent = new Intent(getBaseContext(), AlarmReceiver.class);
-
-        SharedPreferences sharedPreferences = getSharedPreferences("alarms", Activity.MODE_PRIVATE);
+        receiverIntent = new Intent(this, AlarmReceiver.class);
+        receiverIntent.putExtra("alarm_id", alarmId);
 
         if (Build.VERSION.SDK_INT < 23) {
             calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -146,15 +136,9 @@ public class AlarmSettingActivity extends AppCompatActivity {
             calendar.set(Calendar.SECOND, 0);
         }
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putInt("hour", hour);
-        editor.putInt("min", min);
-        editor.commit();
-
         time = calendar.getTimeInMillis();
 
-        pendingIntent = PendingIntent.getBroadcast(this, Codes.ALARM_REQUEST_CODE, receiverIntent,
+        pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), alarmId, receiverIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (Build.VERSION.SDK_INT < 23) {
@@ -167,6 +151,18 @@ public class AlarmSettingActivity extends AppCompatActivity {
         }
         else {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time, pendingIntent);
+        }
+    }
+
+    public void deleteAlarm(int alarmId){
+
+        Intent intent = new Intent(this, AlarmReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), alarmId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if(pendingIntent != null) {
+            alarmManager.cancel(pendingIntent);
+            pendingIntent.cancel();
         }
     }
 }

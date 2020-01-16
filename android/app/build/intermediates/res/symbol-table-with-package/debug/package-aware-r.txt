@@ -633,6 +633,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -672,6 +673,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_eye_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -733,6 +735,8 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color theme
+color title_color
 color tooltip_background_dark
 color tooltip_background_light
 dimen abc_action_bar_content_inset_material
@@ -1047,7 +1051,6 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
-drawable background_splash
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1066,13 +1069,14 @@ drawable design_snackbar_background
 drawable ic_add_black_24dp
 drawable ic_launcher
 drawable ic_launcher_background
+drawable ic_launcher_eye_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icon
 drawable image
-drawable intro
+drawable logo_text
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1088,11 +1092,13 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable splash_background
 drawable stage1
 drawable stage2
 drawable stage3
 drawable stage4
-drawable stage5
+drawable text
+drawable text1
 drawable tfl2_logo
 drawable tfl2_logo_dark
 drawable tooltip_frame_dark
@@ -1223,8 +1229,6 @@ id icon
 id icon_group
 id ifRoom
 id image
-id imageView1
-id imageView2
 id info
 id invisible
 id italic
@@ -1232,11 +1236,13 @@ id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
 id left
+id left2right
 id line1
 id line3
 id listMode
 id list_devices
 id list_item
+id logo
 id masked
 id message
 id middle
@@ -1266,6 +1272,7 @@ id progress_horizontal
 id radio
 id recyclerView
 id right
+id right2left
 id right_icon
 id right_side
 id save_image_matrix
@@ -1311,7 +1318,6 @@ id stage1
 id stage2
 id stage3
 id stage4
-id stage5
 id standard
 id start
 id stretch
@@ -1341,8 +1347,6 @@ id timepicker
 id title
 id titleDividerNoCustom
 id title_template
-id toolbar
-id toolbar_title
 id top
 id topPanel
 id touch_outside
@@ -1422,6 +1426,7 @@ layout activity_alarm_setting
 layout activity_camera
 layout activity_main
 layout activity_posenet
+layout activity_splash
 layout activity_test
 layout alarm_item
 layout custom_dialog
@@ -1456,9 +1461,12 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_action_info
 mipmap ic_launcher
+mipmap ic_launcher_eye
+mipmap ic_launcher_eye_foreground
+mipmap ic_launcher_eye_round
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
-raw sample
+raw sample1
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1709,9 +1717,6 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style MaterialTheme
-style MaterialTheme_AppBarOverlay
-style MaterialTheme_NoActionBar
-style MaterialTheme_PopupOverlay
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents
@@ -1743,7 +1748,6 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
-style SplashTheme
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2

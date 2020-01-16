@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.sirvar:bluetoothkit-android:v0.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65b1bb9d7022f646f38c6e7367f54944/bluetoothkit-android-v0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/65b1bb9d7022f646f38c6e7367f54944/bluetoothkit-android-v0.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.sirvar/bluetoothkit-android/v0.3/7b2c173d66c09b63f4f32d7646ba72f5edf69d31/bluetoothkit-android-v0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

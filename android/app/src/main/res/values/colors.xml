@@ -15,9 +15,12 @@
 -->
 
 <resources>
-  <color name="colorPrimary">#FFE400</color>
-  <color name="colorPrimaryDark">#FF9800</color>
-  <color name="colorAccent">#425066</color>
+  <color name="colorPrimary">#008577</color>
+  <color name="colorPrimaryDark">#00574B</color>
+  <color name="colorAccent">#D81B60</color>
+  <color name="title_color">#ffffff</color>
+  <color name="black">#000000</color>
+  <color name="theme">#F9B135</color>
   <color name="control_background">#FFFC62</color>
   <color name="semi_transparent">#FFF1A7</color>
 </resources>

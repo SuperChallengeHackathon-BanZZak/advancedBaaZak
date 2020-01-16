@@ -19,14 +19,15 @@ package org.tensorflow.lite.examples.posenet
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
+import android.bluetooth.BluetoothAdapter
+import com.sirvar.bluetoothkit.BluetoothKit
 
 class CameraActivity : AppCompatActivity() {
 
-
+   // val bluetoothKit = BluetoothKit()
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_camera)
-
 
     savedInstanceState ?: supportFragmentManager.beginTransaction()
       .replace(R.id.container, PosenetActivity())

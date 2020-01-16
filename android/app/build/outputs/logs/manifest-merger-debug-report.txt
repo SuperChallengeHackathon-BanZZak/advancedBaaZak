@@ -6,6 +6,7 @@ INJECTED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\Android
 INJECTED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:2:1-65:12
 MERGED from [:posenet] C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.params.progressview:step-progress:1.0.2] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5e87453bfe8132c20e7cd3f67ba2ff80\jetified-step-progress-1.0.2\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\946093075d78eb9f74f58a48d61f96ab\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\93bc303e0edf41378a70a682ebb74605\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [org.tensorflow:tensorflow-lite:2.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\14d79ee6d998cba79cea524431fc8898\tensorflow-lite-2.0.0\AndroidManifest.xml:2:1-10:12
@@ -75,6 +76,8 @@ MERGED from [:posenet] C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\bui
 MERGED from [:posenet] C:\Users\heeye\Desktop\advancedBaaZak\android\posenet\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.params.progressview:step-progress:1.0.2] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5e87453bfe8132c20e7cd3f67ba2ff80\jetified-step-progress-1.0.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.params.progressview:step-progress:1.0.2] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5e87453bfe8132c20e7cd3f67ba2ff80\jetified-step-progress-1.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\946093075d78eb9f74f58a48d61f96ab\material-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\946093075d78eb9f74f58a48d61f96ab\material-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\93bc303e0edf41378a70a682ebb74605\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -183,12 +186,16 @@ ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidMan
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:8:22-65
 uses-permission#android.permission.BLUETOOTH
 ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:9:5-68
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:11:5-68
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:11:5-68
 MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:7:5-68
 MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:7:5-68
 	android:name
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:9:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
 ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:10:5-74
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:12:5-74
+MERGED from [com.github.sirvar:bluetoothkit-android:v0.3] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\65b1bb9d7022f646f38c6e7367f54944\bluetoothkit-android-v0.3\AndroidManifest.xml:12:5-74
 MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:8:5-74
 MERGED from [com.akexorcist:bluetoothspp:1.0.0] C:\Users\heeye\.gradle\caches\transforms-2\files-2.1\5a494d6d42117d8227fe8825cc9c91e8\bluetoothspp-1.0.0\AndroidManifest.xml:8:5-74
 	android:name
@@ -230,13 +237,13 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\heeye\.gradle\
 	android:label
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:19:9-41
 	android:roundIcon
-		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:20:9-54
+		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:20:9-58
 	android:icon
-		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:18:9-43
+		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:18:9-47
 	android:allowBackup
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:17:9-35
 	android:theme
-		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:22:9-45
+		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:22:9-40
 service#org.tensorflow.lite.examples.posenet.Service.AlarmBellService
 ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:23:9-26:47
 	android:enabled
@@ -250,7 +257,7 @@ ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidMan
 	android:screenOrientation
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:30:13-49
 	android:theme
-		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:29:13-47
+		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:29:12-68
 	android:name
 		ADDED from C:\Users\heeye\Desktop\advancedBaaZak\android\app\src\main\AndroidManifest.xml:28:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER

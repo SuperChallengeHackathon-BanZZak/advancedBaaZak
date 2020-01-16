@@ -18,7 +18,7 @@ package org.tensorflow.lite.examples.posenet
 
 
 import android.content.IntentFilter
-
+import com.sirvar.bluetoothkit.BluetoothKit
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
@@ -55,6 +55,10 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 import java.io.IOException
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothSocket
+import java.util.*
 
 import android.content.BroadcastReceiver
 import android.os.*
@@ -68,6 +72,10 @@ class PosenetActivity :
   private  var showscore:Float =0f
   var audioManager: AudioManager? = null
   var isshow:Boolean = false
+  var m_isConnected:Boolean=false
+  lateinit var  m_address:String
+  lateinit var m_bluetoothAdapter:BluetoothAdapter
+  var m_bluetoothSocket:BluetoothSocket?=null
 
 
 
@@ -87,7 +95,10 @@ class PosenetActivity :
     Pair(BodyPart.RIGHT_KNEE, BodyPart.RIGHT_ANKLE)
   )
 
-
+  val ints:Int=115
+  val intc:Int=99
+  val inte:Int=101
+  val intw:Int=119
 
 
   /** Threshold for confidence score. */
@@ -116,7 +127,7 @@ class PosenetActivity :
   private var imageView2 : ImageView? = null
   private var imageView3: ImageView? = null
   private var imageView4 : ImageView? = null
-  private var imageView5 : ImageView? = null
+
   private var stepProgressView: StepProgressView? = null
 
   /** A [CameraCaptureSession] for camera preview.   */
@@ -170,9 +181,11 @@ class PosenetActivity :
   /** Abstract interface to someone holding a display surface.    */
   private var surfaceHolder: SurfaceHolder? = null
 
+  val bluetoothKit: BluetoothKit?= BluetoothKit()
 
+  val device :BluetoothDevice?= bluetoothKit?.getDeviceByName("bosung")
 
-
+  var isconnect:Boolean=false
 
 
   //private var stage=4
@@ -201,6 +214,7 @@ class PosenetActivity :
 
     override fun onError(cameraDevice: CameraDevice, error: Int) {
       onDisconnected(cameraDevice)
+      bluetoothKit?.disconnect()
       this@PosenetActivity.activity?.finish()
     }
   }
@@ -233,12 +247,39 @@ class PosenetActivity :
     val activity = activity
     activity?.runOnUiThread { Toast.makeText(activity, text, Toast.LENGTH_SHORT).show() }
   }
-
+  /*private fun getUuid() : String {
+    val uuid =  android.provider.Settings.Secure.getString(Context().contentResolver,Settings.Secure.ANDROID_ID)
+    return uuid
+  }*/
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?): View? {
+
+    //블
+
+
+    if(bluetoothKit!=null) {
+      isconnect=true
+      bluetoothKit.connect(device!!)
+      Toast.makeText(this.context?.applicationContext, "블루투스 연결이 확인되었습니다.",Toast.LENGTH_SHORT).show()
+      bluetoothKit?.bluetoothSocket.outputStream.write(ints)
+    }
+    else
+    {
+      Toast.makeText(this.context?.applicationContext, "블루투스 연결을 확인해주세요.",Toast.LENGTH_SHORT).show()
+    }
+
+
+
+    //println(bytes)
+
+
+   // bluetoothKit.getBluetoothSocket(): BluetoothKitSocketInterface
+    //m_bluetoothSocket=device.createInsecureRfcommSocketToServiceRecord()
     //audioManager =this.context?.getSystemService(Context.AUDIO_SERVICE)
+
+
 
     audioManager = context?.applicationContext?.getSystemService(Context.AUDIO_SERVICE) as AudioManager
     val maxVolume = audioManager!!.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
@@ -278,7 +319,7 @@ class PosenetActivity :
     imageView2 = view.findViewById(R.id.stage2)
     imageView3 = view.findViewById(R.id.stage3)
     imageView4 = view.findViewById(R.id.stage4)
-    imageView5 = view.findViewById(R.id.stage5)
+
     stepProgressView = view.findViewById(R.id.score)
 
   }
@@ -296,6 +337,7 @@ class PosenetActivity :
     toast.view=layout
     toast.show()
   }
+
 
 
   override fun onResume() {
@@ -739,10 +781,7 @@ class PosenetActivity :
               rightarm1x.toFloat(),
               rightarm1y.toFloat()
             )
-            print("코  ")
-            println(simil1.toString())
-            print("싸  ")
-            println(simil2.toString())
+
 
 //
             var simil12 = getcos(
@@ -757,10 +796,7 @@ class PosenetActivity :
               rightarm1x.toFloat(),
               rightarm1y.toFloat()
             )
-            print("코2  ")
-            println(simil12.toString())
-            print("싸2  ")
-            println(simil22.toString())
+
 
             var simil13 = getcos(
               cos(45*rad.toFloat()),
@@ -778,6 +814,7 @@ class PosenetActivity :
 
             //
             if (simil1 < 0.52 && simil2 < 0.52) {
+              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView1?.visibility = View.INVISIBLE
               stage = 2
               stepProgressView?.currentProgress=1
@@ -791,11 +828,14 @@ class PosenetActivity :
           }
           //오른쪽 굽히기
           2 -> {
+
             val NoseRighthipx = person.keyPoints[0].position.x-person.keyPoints[12].position.x
             val NoseRighthipy = person.keyPoints[0].position.y-person.keyPoints[12].position.y
             var simil3 = getcos( -cos(50*rad.toFloat()),-sin(50*rad.toFloat()), NoseRighthipx.toFloat(), NoseRighthipy.toFloat())
-
+            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
             if(simil3<0.52){
+
+              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView2?.visibility = View.INVISIBLE
               stage = 3
               stepProgressView?.currentProgress=2
@@ -807,6 +847,7 @@ class PosenetActivity :
           }
           //왼쪽굽히기
           3 -> {
+            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
             val NoseLefthipx = person.keyPoints[0].position.x-person.keyPoints[11].position.x
             val NoseLefthipy = person.keyPoints[0].position.y-person.keyPoints[11].position.y
             var simil3 = getcos( cos(50*rad.toFloat()),-sin(50*rad.toFloat()),
@@ -814,6 +855,7 @@ class PosenetActivity :
               NoseLefthipy.toFloat()
             )
             if(simil3<0.52){
+              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView3?.visibility = View.INVISIBLE
               stage = 4
               stepProgressView?.currentProgress=3
@@ -826,6 +868,7 @@ class PosenetActivity :
           }
           //스쿼트
           4 -> {
+            bluetoothKit?.bluetoothSocket?.outputStream?.write(ints)
 
             var simil4= getcos(
               -cos(15*rad.toFloat()),sin(15*rad.toFloat()),
@@ -844,6 +887,7 @@ class PosenetActivity :
               leftleg2y.toFloat()
             )
             if(simil4<0.52 && simil5<0.52){
+              bluetoothKit?.bluetoothSocket?.outputStream?.write(intc)
               imageView4?.visibility = View.INVISIBLE
               stage = 5
               stepProgressView?.currentProgress=4
@@ -861,13 +905,15 @@ class PosenetActivity :
           }
           else ->{
             // Create fragment and give it an argument specifying the article it should show
-
+if(showscore<50)   bluetoothKit?.bluetoothSocket?.outputStream?.write(intw)
           if(!isshow) {
+            bluetoothKit?.bluetoothSocket?.outputStream?.write(inte)
             val builder = AlertDialog.Builder(this.context)
             builder.setTitle("알람이 종료되었습니다.")
             builder.setMessage("잠이 깨셨습니까?")
             builder.setPositiveButton("네") { dialog, which ->
               // Toast.makeText(this.context?.applicationContext, "알람을 종료합니다",Toast.LENGTH_SHORT).show()
+              bluetoothKit?.disconnect()
               this.activity?.finish()
             }
             builder.setNegativeButton("아니요") { dialog, which ->
